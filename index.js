@@ -9,12 +9,14 @@
 
 // 1. Prompting user for github username
 const prompt = require("prompt");
-var colors = require("colors/safe");
+const colors = require("colors/safe");
 const githubcall = require("./api");
+const generatereadme = require("./markdown");
+const fs = require("fs");
 
 
-//Start prompt
-prompt.start();
+  //Start prompt
+  prompt.start();
 
 //setting up validation for username
 prompt.message = colors.blue("Question!");
@@ -32,53 +34,68 @@ const questions = {
       description: colors.red('What is your Project Title?'),
       type: 'string',
       required: true
-    },
-    projectdescription: {
-      description: colors.red('Say someting about your project..'),
-      type: 'string',
-      required: true
-    },
-    installation: {
-      description: colors.red('How does someone install this project?'),
-      type: 'string',
-      default: 'npm install'
-    },
-    usage: {
-      description: colors.red('What will the project be used for?'),
-      type: 'string'
-
-    },
-    license: {
-      description: colors.red('Please enter license information for this project'),
-      type: 'string',
-      default: 'none provided'
-    },
-    collaborators: {
-      description: colors.red('Please enter name of contributors for this project, if any?'),
-      type: 'string'
-    },
-    tests: {
-      description: colors.red('How to run test for this project?'),
-      type: 'string',
-      default: '$ npm test'
-    },
-    contributing: {
-      description: colors.red('What should contributors know?'),
-      type: 'string'
     }
+    //   projectdescription: {
+    //     description: colors.red('Say someting about your project..'),
+    //     type: 'string',
+    //     required: true
+    //   },
+    //   installation: {
+    //     description: colors.red('How does someone install this project?'),
+    //     type: 'string',
+    //     default: 'npm install'
+    //   },
+    //   usage: {
+    //     description: colors.red('What will the project be used for?'),
+    //     type: 'string'
+
+    //   },
+    //   license: {
+    //     description: colors.red('Please enter license information for this project'),
+    //     type: 'string',
+    //     default: 'none provided'
+    //   },
+    //   collaborators: {
+    //     description: colors.red('Please enter name of contributors for this project, if any?'),
+    //     type: 'string'
+    //   },
+    //   tests: {
+    //     description: colors.red('How to run test for this project?'),
+    //     type: 'string',
+    //     default: '$ npm test'
+    //   },
+    //   contributing: {
+    //     description: colors.red('What should contributors know?'),
+    //     type: 'string'
+    //   }
   }
 };
 
 //get github username from the user
 prompt.get(questions,
   async function (err, result) {
-    let username = result.githubusername;
-    console.log(' Github username is: ' + username);
-    let userProfile = await githubcall(username);
-
+    userProfile = await githubcall(result.githubusername);
+    userresponse = [];
     console.log("User Email Id: " + userProfile.emailid);
     console.log("User Pic URL: " + userProfile.profilepic);
+
+    userresponse.push(userProfile, result);
+    console.log(userresponse);
+    return userresponse;
   });
+  async function createreadme(err, userresponse){
+    const readme = await generatereadme(userresponse);
+    console.log(readme);
+    return readme;
+  };
+  // .then(function(readme){
+  //   return fs.writeFileSync("README.md", readme, function(err){
+  //     if(err){
+  //       console.log("Error Occured: " + err)
+  //     }
+  //     console.log("ReadMe file has been created")
+  //   })
+  // });
 
 
 
