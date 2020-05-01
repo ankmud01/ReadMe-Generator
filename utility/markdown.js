@@ -1,16 +1,20 @@
+const fs = require("fs");
+const md = require("markdown-it")();
+
 async function generatereadme(userresponse) {
     try {
-        console.log("I have entered inside the createread me function...")
+        // console.log("I have entered inside the createread me function...")
         const readmefile =
-        `
-        [![Buid Status](https://img.shields.io/badge/build-passing-brightgreen?style=plastic)]
+        
+        `[![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=plastic)]
 
-        #Project Title
+        # Project Title
         ${userresponse[1].projecttitle}
 
-        ##Author
-        ${userresponse[0].userFullName}
-        `;
+        ## Author
+        ${userresponse[0].userFullName}`
+        ;
+
         return readmefile;
     }
     catch (error) {

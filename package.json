@@ -19,6 +19,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
+    "markdown-it": "^10.0.0",
     "prompt": "^1.0.0"
   }
 }

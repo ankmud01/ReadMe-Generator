@@ -1,9 +1,7 @@
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=plastic)]
 
-        [![Buid Status](https://img.shields.io/badge/build-passing-brightgreen?style=plastic)]
+        # Project Title
+        Hello
 
-        #Project Title
-        about_me
-
-        ##Author
+        ## Author
         Ankit Mudvari
-        

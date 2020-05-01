@@ -87,8 +87,12 @@ prompt.get(questions,
   
       const readmefile = await generatereadme(userresponse);
       console.log("This is my readmefile " + readmefile);
-  
-      return fs.writeFileSync("README.md", readmefile);
+
+      fs.writeFile("README.md", readmefile, function(err){
+        if(err){
+          console.error(error);
+        }
+      });
     }
     catch(error){
       console.error(error)
