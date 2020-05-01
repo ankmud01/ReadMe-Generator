@@ -10,8 +10,8 @@
 // 1. Prompting user for github username
 const prompt = require("prompt");
 const colors = require("colors/safe");
-const githubcall = require("./api");
-const generatereadme = require("./markdown");
+const githubcall = require("./utility/api");
+const generatereadme = require("./utility/markdown");
 const fs = require("fs");
 
 
@@ -73,29 +73,27 @@ const questions = {
 
 //get github username from the user
 prompt.get(questions,
-  async function (err, result) {
-    userProfile = await githubcall(result.githubusername);
-    userresponse = [];
-    console.log("User Email Id: " + userProfile.emailid);
-    console.log("User Pic URL: " + userProfile.profilepic);
-
-    userresponse.push(userProfile, result);
-    console.log(userresponse);
-    return userresponse;
+  async function (error, result) {
+    try{
+      const username = result.githubusername;
+      const userresponse = [];
+  
+      const userProfile = await githubcall(username);
+      console.log("User Email Id: " + userProfile.emailid);
+      console.log("User Pic URL: " + userProfile.profilepic);
+  
+      userresponse.push(userProfile, result);
+      console.log(userresponse);
+  
+      const readmefile = await generatereadme(userresponse);
+      console.log("This is my readmefile " + readmefile);
+  
+      return fs.writeFileSync("README.md", readmefile);
+    }
+    catch(error){
+      console.error(error)
+    };
   });
-  async function createreadme(err, userresponse){
-    const readme = await generatereadme(userresponse);
-    console.log(readme);
-    return readme;
-  };
-  // .then(function(readme){
-  //   return fs.writeFileSync("README.md", readme, function(err){
-  //     if(err){
-  //       console.log("Error Occured: " + err)
-  //     }
-  //     console.log("ReadMe file has been created")
-  //   })
-  // });
 
 
 

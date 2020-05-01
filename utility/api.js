@@ -2,7 +2,7 @@ const axios = require("axios");
 require("dotenv/config");
 
  //2. Making call to github repo using axios
-  const githubcall = async function getuserinfo(username){
+  async function githubcall(username){
     const githuburl = `https://api.github.com/users/${username}`;
     try{
      const response = await axios.get(githuburl,{
@@ -20,7 +20,7 @@ require("dotenv/config");
         return userProfile;
     }
     catch(error){
-        console.log("github call failed: " + error)
+        console.error("Github call failed beacuse: " + error)
     };
   } 
   module.exports = githubcall;
