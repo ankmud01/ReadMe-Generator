@@ -1,18 +1,11 @@
-// Create a command-line application that dynamically generates a README.md from a user's input. 
-// Steps 
-// 1. Prompt user to ask questions
-//     github repo username
-// 2. Make a call to github repo
-//     get image and email address 
-// 3. Prompt user about their Project 
-// 4. Generate a readme file using the aswer from above questions
-
 // 1. Prompting user for github username
 const prompt = require("prompt");
 const colors = require("colors/safe");
 const githubcall = require("./utility/api");
 const generatereadme = require("./utility/markdown");
 const fs = require("fs");
+const util = require("util");
+const writeReadme = util.promisify(fs.writeFile);
 
 
   //Start prompt
@@ -76,23 +69,25 @@ prompt.get(questions,
   async function (error, result) {
     try{
       const username = result.githubusername;
-      const userresponse = [];
+      // const userresponse = [];
   
       const userProfile = await githubcall(username);
       console.log("User Email Id: " + userProfile.emailid);
       console.log("User Pic URL: " + userProfile.profilepic);
   
-      userresponse.push(userProfile, result);
-      console.log(userresponse);
+      // userresponse.push(userProfile, result);
+      // console.log(userresponse);
+      const data = {
+        projecttitle: result.projecttitle,
+        author: userProfile.userFullName
+      }
   
-      const readmefile = await generatereadme(userresponse);
+      const readmefile = await generatereadme(data);
       console.log("This is my readmefile " + readmefile);
 
-      fs.writeFile("README.md", readmefile, function(err){
-        if(err){
-          console.error(error);
-        }
-      });
+      // return readmefile;
+
+      return writeReadme("README.md", readmefile);
     }
     catch(error){
       console.error(error)

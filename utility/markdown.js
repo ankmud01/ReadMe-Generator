@@ -1,25 +1,50 @@
 const fs = require("fs");
-const md = require("markdown-it")();
+// const util = require("util");
+// const writeReadme = util.promisify(fs.writeFile);
 
-async function generatereadme(userresponse) {
-    try {
-        // console.log("I have entered inside the createread me function...")
-        const readmefile =
-        
-        `[![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=plastic)]
+async function generatereadme(data) {
+    const readmefile = 
+    // return
+`![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=plastic)
 
-        # Project Title
-        ${userresponse[1].projecttitle}
+# Project-Title: 
+   > ${data.projecttitle}
 
-        ## Author
-        ${userresponse[0].userFullName}`
-        ;
+## Author: 
+   > ${data.author}
+` 
+;
+    return readmefile;
+    // return writeReadme("README.md", readmefile);
+    // ![License](https://img.shields.io/badge/License-${data.license}-blue)
+    // ## Discription
+    
+    // ${data.discription}
+    // ## Table of Contents
+    // * [Installation](#installation)
+    // * [Usage](#usage)
+    // * [License](#license)
+    // * [Contributing](#contributing)
+    // * [Tests](#tests)
+    // * [Questions](#questions)
+    // ## Installation
+    // To install necessary dependencies, run the following command:
+    // ${data.dependencies}
+    // ## Usage
+    // ${data.know}
+    // ## License
+    // ${data.license}
+    // ## Contributing
+    // ${data.repo}
+    // ## Test
+    // To run test, run the following comand:
+    // ${data.test}
+    // ## Questions
+    
+    // ![ME](${getUserResponse.data.avatar_url}) 
+    // if you have any questions about the repo contact me directly at ${getUserResponse.data.email} thank you.
+    // `;
 
-        return readmefile;
-    }
-    catch (error) {
-        console.error("Cannot create a readmefile because: " + error)
-    };
 }
 module.exports = generatereadme;
 
@@ -43,12 +68,3 @@ module.exports = generatereadme;
 //    * [Tests](#tests)
 //    * [Dependency](#dependency)
 // <!--te-->
-
-
-// Installation
-// ============
-
-// Linux (manual installation)
-// ```bash
-// $ chmod a+x gh-md-toc
-// ```
