@@ -3,24 +3,35 @@ const fs = require("fs");
 // const writeReadme = util.promisify(fs.writeFile);
 
 async function generatereadme(data) {
-    const readmefile = 
-    // return
-`![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=plastic)
+    const readmefile =
+        // return
+        `![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=plastic)
 
 # Project-Title: 
-   > ${data.projecttitle}
+${data.projecttitle}
 
 ## Author: 
-   > ${data.author}
-` 
-;
+${data.author}
+
+## Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
+## Installation
+To install necessary dependencies, run the following command:
+
+`
+        ;
     return readmefile;
     // return writeReadme("README.md", readmefile);
     // ![License](https://img.shields.io/badge/License-${data.license}-blue)
     // ## Discription
-    
+
     // ${data.discription}
-    // ## Table of Contents
+    //     ## Table of Contents
     // * [Installation](#installation)
     // * [Usage](#usage)
     // * [License](#license)
@@ -40,9 +51,10 @@ async function generatereadme(data) {
     // To run test, run the following comand:
     // ${data.test}
     // ## Questions
-    
+
     // ![ME](${getUserResponse.data.avatar_url}) 
     // if you have any questions about the repo contact me directly at ${getUserResponse.data.email} thank you.
+
     // `;
 
 }
