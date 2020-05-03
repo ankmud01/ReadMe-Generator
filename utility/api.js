@@ -1,7 +1,7 @@
 const axios = require("axios");
 require("dotenv/config");
 
- //2. Making call to github repo using axios
+ //Making call to github repo using axios
   async function githubcall(username){
     const githuburl = `https://api.github.com/users/${username}`;
     try{

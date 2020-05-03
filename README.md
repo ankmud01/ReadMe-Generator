@@ -1,41 +1,48 @@
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=plastic)
 
 # Project-Title: 
-ReadMe_Generator
+Readme_Generator
 
 ## Author: 
 Ankit Mudvari
 
 ## Table of Contents
+=====================
 * [Installation](#installation)
-* [Usage](#usage)
 * [License](#license)
+* [Usage](#usage)
+* [Collaborators](#collaborators)
+* [Test](#test)
 * [Contributing](#contributing)
-* [Tests](#tests)
 * [Questions](#questions)
 
 ## Installation
-To install necessary dependencies, run the following command:
-`npm install`
+To install necessary dependencies, run the following command:<br>
+```
+npm install
+```
 
 ## License
 MIT
 
 ## Usage
-This project will be used to generate Readme files.
+This project will be used to create read me file based on users input
 
-## Contributors
-Please be midful of what you put into the code. If there are anything that can make this code better please feel free to do it.
+## Collaborators
+Ankit Mudvari, Google
 
 ## Test
-To run test, run the following comand:
-undefined
+To run test, run the following comand:<br>
+```
+npm test
+```
 
 ## Contributing
-Please be midful of what you put into the code. If there are anything that can make this code better please feel free to do it.
+Please be respectful and any feedback is appreciated
 
 ## Questions
 
-![ME](https://avatars0.githubusercontent.com/u/59261007?v=4) 
-if you have any questions about the repo contact me directly at ankmud01@gmail.com thank you.
+<img src="https://avatars0.githubusercontent.com/u/59261007?v=4" alt="ME" width="150" height="150"><br>
+if you have any questions about the repo contact me directly at ankmud01@gmail.com thank you.<br>
+If you want to see more of my work please click here https://api.github.com/users/ankmud01/repos.
 
