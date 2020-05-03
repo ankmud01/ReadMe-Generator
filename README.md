@@ -1,7 +1,7 @@
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=plastic)
 
 # Project-Title: 
-Readme_Generator
+ReadMe_Generator
 
 ## Author: 
 Ankit Mudvari
@@ -11,7 +11,7 @@ Ankit Mudvari
 * [Installation](#installation)
 * [License](#license)
 * [Usage](#usage)
-* [Collaborators](#collaborators)
+* [Contributors](#contributors)
 * [Test](#test)
 * [Contributing](#contributing)
 * [Questions](#questions)
@@ -26,7 +26,7 @@ npm install
 MIT
 
 ## Usage
-This project will be used to create read me file based on users input
+This project will be used to generate read me files based on user input
 
 ## Collaborators
 Ankit Mudvari, Google
@@ -38,7 +38,7 @@ npm test
 ```
 
 ## Contributing
-Please be respectful and any feedback is appreciated
+Please be repectful and mindful of other's work
 
 ## Questions
 

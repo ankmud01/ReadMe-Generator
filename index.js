@@ -5,6 +5,8 @@ const generatereadme = require("./utility/markdown");
 const fs = require("fs");
 const util = require("util");
 const writeReadme = util.promisify(fs.writeFile);
+const figlet = require("figlet");
+const chalk = require("chalk");
 
 //Questions to create Readme file
 const questions = [
@@ -72,11 +74,22 @@ const questions = [
   },
 ];
 
+console.clear();
+console.log(
+  chalk.greenBright(
+    figlet.textSync('I m Readme_Generator', {
+      font: 'Star Wars',
+      horizontalLayout: 'default',
+      verticalLayout: 'default'
+    })
+  )
+);
+
 //Prompt function aling with async function to get username and writefile
 inquirer.prompt(questions).then(result => {
-  try{
+  try {
     //making async call to github
-    async function filecreate(){
+    async function filecreate() {
       const username = result.githubusername;
       const userProfile = await githubcall(username);
 
@@ -98,16 +111,31 @@ inquirer.prompt(questions).then(result => {
 
       //generating readme file
       const readmefile = generatereadme(data);
-      console.log("This is my readmefile " + readmefile);
-  
+      // console.log("This is my readmefile " + readmefile);
+
       return writeReadme("README.md", readmefile);
     }
     filecreate();
+    
+    function thankyou() {
+      console.clear();
+      console.log(
+        chalk.greenBright(
+          figlet.textSync('Thank You for Using' + '\n' + 'ReadMe Generator!!!', {
+            font: 'Star Wars',
+            horizontalLayout: 'default',
+            verticalLayout: 'default'
+          })
+        )
+      )
+    };
+    thankyou();
   }
-  catch(error){
+  catch (error) {
     console.error(error);
   }
 });
+
 
 
 
