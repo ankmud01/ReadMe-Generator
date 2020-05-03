@@ -23,13 +23,13 @@ npm install
 ```
 
 ## License
-MIT
+GNU GPLv3
 
 ## Usage
-This project will be used to generate read me files based on user input
+This project will be used to generate readme file based on users input
 
 ## Collaborators
-Ankit Mudvari, Google
+Ankit Mudvari, Google, NPM
 
 ## Test
 To run test, run the following comand:<br>
@@ -38,7 +38,10 @@ npm test
 ```
 
 ## Contributing
-Please be repectful and mindful of other's work
+Please be mindful of peoples code .. Thank You for the support, your feedbacks are appericated
+
+<br>
+<img src="https://media.giphy.com/media/lSlzs52QC74ZWI0VwB/giphy.gif" alt="Demo">
 
 ## Questions
 
